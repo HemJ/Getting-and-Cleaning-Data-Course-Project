@@ -46,9 +46,11 @@ ___
 The *run_analysis.R* script performs data preparation and then performs the steps as per project requirements. Below steps are performed by this script -
 
 1. Downloads the dataset
+
     Downloads and extracts dataset to working directory
 
 2. Reads the files
+
     Assigns each file to variables and gives appropriate column names
     * `activities` (6 obs. of  2 variables)
     * `features` (561 obs. of  2 variables)
@@ -60,19 +62,25 @@ The *run_analysis.R* script performs data preparation and then performs the step
     * `y_train` (7352 obs. of  1 variables)
 
 3. Merges the training and the test sets to create one data set
+
     * `test_data` (2947 obs. of  563 variables) - merged `subject_test`, `y_test`, `x_test` using cbind()
     * `train_data` (7352 obs. of  563 variables) - merged `subject_train`, `y_train`, `x_train` using cbind()
     * `merged_data` (10299 obs. of  563 variables) - merged `train_data`, `test_data` using rbind()
 
 4. Extracts only the measurements on the mean and standard deviation for each measurement
+
     * `merged_data` (10299 obs. of  88 variables) - sub-setted `merged_data` keeping only columns `subjectId`, `activityId`, and `columns that contain "mean" or "std"`
 
 5. Uses descriptive activity names to name the `activities` in the data set
+
     * Replaces values of `activityId` in `merged_data` by `activityLabel` in `activities`
   
 6. Appropriately labels the data set with descriptive variable names.
+
     * Renames columns of `merged_data` to have descriptive names using details available in *'Features Information'* section
 
 7. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
     * `tidy_data` (180 obs. of  88 variables) - sumarized `merged_data` taking the average of each variable for each activity and each subject using group_by() and summarise_all()
+    
     * Writes `"Tidy_Data.txt"` from `tidy_data`
