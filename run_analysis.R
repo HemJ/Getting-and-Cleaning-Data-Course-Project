@@ -27,13 +27,13 @@ features      <- read.table("UCI HAR Dataset/features.txt", col.names = c("featu
 
 # read test data
 subject_test  <- read.table("UCI HAR Dataset/test/subject_test.txt", col.names = "subjectId")
-x_test  <- read.table("UCI HAR Dataset/test/X_test.txt", col.names = features$featureLabel)
-y_test  <- read.table("UCI HAR Dataset/test/y_test.txt", col.names = "activityId")
+x_test      <- read.table("UCI HAR Dataset/test/X_test.txt", col.names = features$featureLabel)
+y_test      <- read.table("UCI HAR Dataset/test/y_test.txt", col.names = "activityId")
 
 # read training data
 subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt", col.names = "subjectId")
-x_train <- read.table("UCI HAR Dataset/train/X_train.txt", col.names = features$featureLabel)
-y_train <- read.table("UCI HAR Dataset/train/y_train.txt", col.names = "activityId")
+x_train     <- read.table("UCI HAR Dataset/train/X_train.txt", col.names = features$featureLabel)
+y_train     <- read.table("UCI HAR Dataset/train/y_train.txt", col.names = "activityId")
 
 #-------------------------------------------------------------------------------
 
@@ -71,10 +71,10 @@ names(merged_data) <- gsub("fBody", "FreqBody", names(merged_data), ignore.case 
 names(merged_data) <- gsub("freq", "Frequency", names(merged_data), ignore.case = TRUE)
 names(merged_data) <- gsub("Acc", "Accelerometer", names(merged_data), ignore.case = TRUE)
 names(merged_data) <- gsub("Gyro", "Gyroscope", names(merged_data), ignore.case = TRUE)
-names(merged_data) <- gsub("Mag", "Magnitude", names(merged_data))
-names(merged_data) <- gsub("angle", "Angle", names(merged_data))
-names(merged_data) <- gsub("gravity", "Gravity", names(merged_data))
-names(merged_data) <- gsub("BodyBody", "Body", names(merged_data))
+names(merged_data) <- gsub("Mag", "Magnitude", names(merged_data), ignore.case = TRUE)
+names(merged_data) <- gsub("angle", "Angle", names(merged_data), ignore.case = TRUE)
+names(merged_data) <- gsub("gravity", "Gravity", names(merged_data), ignore.case = TRUE)
+names(merged_data) <- gsub("BodyBody", "Body", names(merged_data), ignore.case = TRUE)
 
 #-------------------------------------------------------------------------------
 
